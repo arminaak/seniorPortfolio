@@ -1,3 +1,6 @@
+/* ================================
+   VARIABLES / COLORS / FONTS
+================================ */
 :root {
   --bg: #0f1724;          /* Deep navy background */
   --card: #0b1220;        /* Slightly lighter section bg */
@@ -9,20 +12,44 @@
   font-family: 'Inter', sans-serif;
 }
 
+/* ================================
+   GLOBAL STYLES
+================================ */
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
 }
 
-/* Wrapper */
 .wrap {
   max-width: 1100px;
   margin: 0 auto;
   padding: 24px;
 }
 
-/* Sticky Navbar */
+h1, h2, h3, p {
+  margin: 0 0 12px 0;
+}
+
+p {
+  line-height: 1.6;
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-light);
+}
+
+/* ================================
+   NAVBAR / LOGO
+================================ */
 header {
   display: flex;
   justify-content: space-between;
@@ -35,7 +62,6 @@ header {
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* Logo as initials, clickable */
 .logo {
   display: inline-block;
   font-weight: 700;
@@ -43,14 +69,13 @@ header {
   background: linear-gradient(135deg, #3b82f6, #60a5fa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: var(--accent);
+  color: var(--accent); /* fallback */
   width: 50px;
   height: 50px;
   text-align: center;
   line-height: 50px;
   border-radius: 50%;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  text-decoration: none;
 }
 
 .logo:hover {
@@ -59,19 +84,18 @@ header {
 }
 
 nav a {
-  text-decoration: none;
   color: var(--muted);
   margin-left: 18px;
-  font-weight: 600;
-  transition: color 0.2s ease;
 }
 
-nav a:hover,
-nav a.active {
+nav a.active,
+nav a:hover {
   color: var(--accent);
 }
 
-/* About Section */
+/* ================================
+   HERO / ABOUT SECTION
+================================ */
 .about-section {
   margin-top: 60px;
 }
@@ -83,7 +107,6 @@ nav a.active {
   align-items: center;
 }
 
-/* Profile Image */
 .about-image {
   text-align: center;
 }
@@ -101,7 +124,6 @@ nav a.active {
   transform: scale(1.05);
 }
 
-/* Text */
 .about-text h1 {
   font-size: 28px;
   margin-bottom: 12px;
@@ -114,12 +136,82 @@ nav a.active {
   margin-bottom: 8px;
 }
 
-.about-text p {
-  color: var(--text);
-  line-height: 1.6;
+/* ================================
+   PROJECTS SECTION
+================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
 }
 
-/* Fade-in animation */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+}
+
+/* ================================
+   SKILLS SECTION
+================================ */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.skills-grid span {
+  background: rgba(59,130,246,0.2);
+  color: var(--accent);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* ================================
+   CONTACT FORM
+================================ */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+}
+
+input, textarea {
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  background: var(--card);
+  color: var(--text);
+}
+
+button {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-light);
+}
+
+/* ================================
+   FADE-IN ANIMATIONS
+================================ */
 .fade-in-left, .fade-in-right {
   opacity: 0;
   transform: translateX(20px);
@@ -135,7 +227,26 @@ nav a.active {
   transform: translateX(0);
 }
 
-/* Responsive */
+/* ================================
+   BUTTONS
+================================ */
+.btn {
+  background: var(--accent);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--accent-light);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
 @media (max-width: 820px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -149,5 +260,9 @@ nav a.active {
   .avatar-circle {
     width: 150px;
     height: 150px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
