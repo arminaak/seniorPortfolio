@@ -266,3 +266,35 @@ button:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* Resume Section */
+.resume-section {
+  text-align: center;
+  margin: 4rem auto;
+  max-width: 600px;
+}
+
+.resume-section h2 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.resume-section p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.resume-section .btn {
+  background: var(--accent);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.resume-section .btn:hover {
+  background: #60a5fa;
+  transform: scale(1.05);
+}
